@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "nanopb.proto";
+
+enum ButtonIndex {
+  LEFT = 0;
+  RIGHT = 1;
+  DOWN = 2;
+  UP = 3;
+  C_LEFT = 4;
+  C_RIGHT = 5;
+  C_DOWN = 6;
+  C_UP = 7;
+  A = 8;
+  B = 9;
+  X = 10;
+  Y = 11;
+  L = 12;
+  R = 13;
+  Z = 14;
+  LIGHTSHIELD = 15;
+  MIDSHIELD = 16;
+  SELECT = 17;
+  START = 18;
+  HOME = 19;
+  MOD_X = 20;
+  MOD_Y = 21;
+  BUTTON_COUNT = 22;
+};
+
+message ButtonSwap {
+  ButtonIndex button1 = 1;
+  ButtonIndex button2 = 2;
+}
+
+enum SocdType {
+  SOCD_NEUTRAL = 0;
+  SOCD_2IP = 1;
+  SOCD_2IP_NO_REAC = 2;
+  SOCD_DIR1_PRIORITY = 3;
+  SOCD_DIR2_PRIORITY = 4;
+  SOCD_NONE = 5;
+}
+
+message SocdPair {
+  ButtonIndex input_dir1 = 1;
+  ButtonIndex input_dir2 = 2;
+  SocdType socd_type = 3;
+}
+
+message ControllerModeConfig {
+  uint32 mode_id = 1;
+  repeated SocdPair socd_pairs = 2 [ (nanopb).max_count = 10 ];
+  repeated ButtonSwap button_remapping = 3 [ (nanopb).max_count = 50 ];
+  repeated ButtonIndex button_combo = 4 [ (nanopb).max_count = 5 ];
+}
+
+message Config {
+  repeated ControllerModeConfig controller_mode_config = 1; [ (nanopb).max_count = 10 ];
+}
