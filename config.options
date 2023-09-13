@@ -2,4 +2,4 @@ ControllerModeConfig.socd_pairs max_count:10
 ControllerModeConfig.button_remapping max_count:50
 ControllerModeConfig.button_combo max_count:5
 
-Config.controller_mode_config max_count:10
+Config.controller_mode_configs max_count:10

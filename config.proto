@@ -54,5 +54,5 @@ message ControllerModeConfig {
 }
 
 message Config {
-  repeated ControllerModeConfig controller_mode_config = 1;
+  repeated ControllerModeConfig controller_mode_configs = 1;
 }
