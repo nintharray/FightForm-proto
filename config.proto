@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "nanopb.proto";
-
 enum ButtonIndex {
   LEFT = 0;
   RIGHT = 1;
@@ -50,11 +48,11 @@ message SocdPair {
 
 message ControllerModeConfig {
   uint32 mode_id = 1;
-  repeated SocdPair socd_pairs = 2 [ (nanopb).max_count = 10 ];
-  repeated ButtonSwap button_remapping = 3 [ (nanopb).max_count = 50 ];
-  repeated ButtonIndex button_combo = 4 [ (nanopb).max_count = 5 ];
+  repeated SocdPair socd_pairs = 2;
+  repeated ButtonSwap button_remapping = 3;
+  repeated ButtonIndex button_combo = 4;
 }
 
 message Config {
-  repeated ControllerModeConfig controller_mode_config = 1; [ (nanopb).max_count = 10 ];
+  repeated ControllerModeConfig controller_mode_config = 1;
 }
