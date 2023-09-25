@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
+  "name": "HayBox-proto",
+  "description": "Protobuf definitions for HayBox configuration",
+  "keywords": "HayBox, game controller, protocol buffers, protobuf",
+  "authors": {
+    "name": "Jonathan Haylett"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JonnyHaystack/HayBox-proto.git"
+  },
+  "version": "0.0.0",
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/JonnyHaystack/HayBox-proto",
+  "dependencies": {
+    "eric-wieser/PacketIO": "^0.3.0",
+    "Nanopb": "https://github.com/nanopb/nanopb/archive/f5f65a90c8057a591f3cc98de40874bd78c9880d.zip"
+  },
+  "frameworks": "arduino",
+  "platforms": "*"
+}
