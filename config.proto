@@ -43,7 +43,7 @@ enum SocdType {
 }
 
 enum ControllerModeId {
-  CONTROLLER_MODE_UNSPECIFIED = 0;
+  UNSPECIFIED = 0;
   MELEE_20_BUTTON = 1;
   MELEE_18_BUTTON = 2;
   PROJECT_M = 3;

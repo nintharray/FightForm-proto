@@ -7,3 +7,4 @@ Config.controller_mode_configs max_count:10
 Command long_names:false
 Button long_names:false
 SocdType long_names:false
+CommunicationBackendId long_names:false
