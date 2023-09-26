@@ -33,11 +33,6 @@ enum Button {
   BTN_MOD_Y = 22;
 };
 
-message ButtonRemap {
-  Button old_button = 1;
-  Button new_button = 2;
-}
-
 enum SocdType {
   SOCD_UNSPECIFIED = 0;
   SOCD_NEUTRAL = 1;
@@ -47,6 +42,30 @@ enum SocdType {
   SOCD_DIR2_PRIORITY = 5;
 }
 
+enum ControllerModeId {
+  CONTROLLER_MODE_UNSPECIFIED = 0;
+  MELEE_20_BUTTON = 1;
+  MELEE_18_BUTTON = 2;
+  PROJECT_M = 3;
+  ULTIMATE = 4;
+  FGC_MODE = 5;
+  RIVALS_OF_AETHER = 6;
+}
+
+enum CommunicationBackendId {
+  COMMS_BACKEND_UNSPECIFIED = 0;
+  COMMS_BACKEND_DINPUT = 1;
+  COMMS_BACKEND_XINPUT = 2;
+  COMMS_BACKEND_GAMECUBE = 3;
+  COMMS_BACKEND_N64 = 4;
+  COMMS_BACKEND_NINTENDO_SWITCH = 5;
+}
+
+message ButtonRemap {
+  Button old_button = 1;
+  Button new_button = 2;
+}
+
 message SocdPair {
   Button button_dir1 = 1;
   Button button_dir2 = 2;
@@ -54,12 +73,20 @@ message SocdPair {
 }
 
 message ControllerModeConfig {
-  uint32 mode_id = 1;
+  ControllerModeId mode_id = 1;
   repeated SocdPair socd_pairs = 2;
   repeated ButtonRemap button_remapping = 3;
   repeated Button activation_binding = 4;
 }
 
+message CommunicationBackendConfig {
+  CommunicationBackendId backend_id = 1;
+  Button activation_binding = 2;
+  ControllerModeId default_controller_mode = 3;
+  repeated CommunicationBackendId secondary_backends = 1;
+}
+
 message Config {
   repeated ControllerModeConfig controller_mode_configs = 1;
+  repeated CommunicationBackendConfig = 2;
 }
