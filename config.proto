@@ -48,8 +48,8 @@ enum SocdType {
 }
 
 message SocdPair {
-  Button input_dir1 = 1;
-  Button input_dir2 = 2;
+  Button button_dir1 = 1;
+  Button button_dir2 = 2;
   SocdType socd_type = 3;
 }
 
