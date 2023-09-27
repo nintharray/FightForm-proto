@@ -81,12 +81,13 @@ message ControllerModeConfig {
 
 message CommunicationBackendConfig {
   CommunicationBackendId backend_id = 1;
-  Button activation_binding = 2;
-  ControllerModeId default_controller_mode = 3;
-  repeated CommunicationBackendId secondary_backends = 1;
+  ControllerModeId default_controller_mode = 2;
+  repeated Button activation_binding = 3;
+  repeated CommunicationBackendId secondary_backends = 4;
 }
 
 message Config {
-  repeated ControllerModeConfig controller_mode_configs = 1;
-  repeated CommunicationBackendConfig = 2;
+  CommunicationBackendId default_backend = 1;
+  repeated ControllerModeConfig controller_mode_configs = 2;
+  repeated CommunicationBackendConfig = 3;
 }
