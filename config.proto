@@ -59,6 +59,7 @@ enum CommunicationBackendId {
   COMMS_BACKEND_GAMECUBE = 3;
   COMMS_BACKEND_N64 = 4;
   COMMS_BACKEND_NINTENDO_SWITCH = 5;
+  COMMS_BACKEND_CONFIGURATOR = 6;
 }
 
 message ButtonRemap {
