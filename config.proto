@@ -88,6 +88,6 @@ message CommunicationBackendConfig {
 
 message Config {
   CommunicationBackendId default_backend = 1;
-  repeated ControllerModeConfig controller_mode_configs = 2;
+  repeated ControllerModeConfig input_mode_configs = 2;
   repeated CommunicationBackendConfig communication_backend_configs = 3;
 }
