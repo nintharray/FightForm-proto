@@ -44,12 +44,11 @@ enum SocdType {
 
 enum ControllerModeId {
   UNSPECIFIED = 0;
-  MELEE_20_BUTTON = 1;
-  MELEE_18_BUTTON = 2;
-  PROJECT_M = 3;
-  ULTIMATE = 4;
-  FGC_MODE = 5;
-  RIVALS_OF_AETHER = 6;
+  MELEE = 1;
+  PROJECT_M = 2;
+  ULTIMATE = 3;
+  FGC_MODE = 4;
+  RIVALS_OF_AETHER = 5;
 }
 
 enum CommunicationBackendId {
