@@ -1,6 +1,6 @@
-ControllerModeConfig.socd_pairs max_count:10
-ControllerModeConfig.button_remapping max_count:50
-ControllerModeConfig.activation_binding max_count:4
+InputModeConfig.socd_pairs max_count:10
+InputModeConfig.button_remapping max_count:50
+InputModeConfig.activation_binding max_count:4
 
 CommunicationBackendConfig.activation_binding max_count:2
 
