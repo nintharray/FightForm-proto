@@ -42,7 +42,7 @@ enum SocdType {
   SOCD_DIR2_PRIORITY = 5;
 }
 
-enum InputModeId {
+enum GameModeId {
   MODE_UNSPECIFIED = 0;
   MODE_MELEE = 1;
   MODE_PROJECT_M = 2;
@@ -72,8 +72,8 @@ message SocdPair {
   SocdType socd_type = 3;
 }
 
-message InputModeConfig {
-  InputModeId mode_id = 1;
+message GameModeConfig {
+  GameModeId mode_id = 1;
   repeated SocdPair socd_pairs = 2;
   repeated ButtonRemap button_remapping = 3;
   repeated Button activation_binding = 4;
@@ -81,13 +81,13 @@ message InputModeConfig {
 
 message CommunicationBackendConfig {
   CommunicationBackendId backend_id = 1;
-  InputModeId default_mode = 2;
+  GameModeId default_mode = 2;
   repeated Button activation_binding = 3;
   repeated CommunicationBackendId secondary_backends = 4;
 }
 
 message Config {
   CommunicationBackendId default_backend = 1;
-  repeated InputModeConfig input_mode_configs = 2;
+  repeated GameModeConfig game_mode_configs = 2;
   repeated CommunicationBackendConfig communication_backend_configs = 3;
 }

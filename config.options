@@ -1,14 +1,14 @@
-InputModeConfig.socd_pairs max_count:10
-InputModeConfig.button_remapping max_count:50
-InputModeConfig.activation_binding max_count:4
+GameModeConfig.socd_pairs max_count:10
+GameModeConfig.button_remapping max_count:50
+GameModeConfig.activation_binding max_count:4
 
 CommunicationBackendConfig.activation_binding max_count:2
 
-Config.input_mode_configs max_count:10
+Config.game_mode_configs max_count:10
 Config.communication_backend_configs max_count:10
 
 Command long_names:false
 Button long_names:false
 SocdType long_names:false
-InputModeId long_names:false
+GameModeId long_names:false
 CommunicationBackendId long_names:false
