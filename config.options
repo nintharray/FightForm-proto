@@ -10,4 +10,5 @@ Config.communication_backend_configs max_count:10
 Command long_names:false
 Button long_names:false
 SocdType long_names:false
+InputmodeId long_names:false
 CommunicationBackendId long_names:false
