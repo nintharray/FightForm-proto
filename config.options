@@ -7,6 +7,10 @@ CommunicationBackendConfig.activation_binding max_count:2
 Config.game_mode_configs max_count:10
 Config.communication_backend_configs max_count:10
 
+DeviceInfo.firmware_name max_length:25
+DeviceInfo.firmware_version max_length:8
+DeviceInfo.device_name max_length:30
+
 Command long_names:false
 Button long_names:false
 SocdType long_names:false
