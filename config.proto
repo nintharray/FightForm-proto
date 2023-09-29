@@ -6,6 +6,8 @@ enum Command {
   CMD_SET_DEVICE_INFO = 2;
   CMD_GET_CONFIG = 3;
   CMD_SET_CONFIG = 4;
+  CMD_ERROR = 5;
+  CMD_SUCCESS = 6;
 }
 
 enum Button {
