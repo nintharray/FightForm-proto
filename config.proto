@@ -8,6 +8,8 @@ enum Command {
   CMD_SET_CONFIG = 4;
   CMD_ERROR = 5;
   CMD_SUCCESS = 6;
+  CMD_REBOOT_FIRMWARE = 7;
+  CMD_REBOOT_BOOTLOADER = 8;
 }
 
 enum Button {
