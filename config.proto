@@ -2,9 +2,10 @@ syntax = "proto3";
 
 enum Command {
   CMD_UNSPECIFIED = 0;
-  CMD_GET_STATUS = 1;
-  CMD_GET_CONFIG = 2;
-  CMD_SET_CONFIG = 3;
+  CMD_GET_DEVICE_INFO = 1;
+  CMD_SET_DEVICE_INFO = 2;
+  CMD_GET_CONFIG = 3;
+  CMD_SET_CONFIG = 4;
 }
 
 enum Button {
@@ -90,4 +91,10 @@ message Config {
   CommunicationBackendId default_backend = 1;
   repeated GameModeConfig game_mode_configs = 2;
   repeated CommunicationBackendConfig communication_backend_configs = 3;
+}
+
+message DeviceInfo {
+  string firmware_string = 1;
+  string firmware_version_string = 2;
+  string device_name = 3;
 }
