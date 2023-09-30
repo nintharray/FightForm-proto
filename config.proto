@@ -67,8 +67,8 @@ enum CommunicationBackendId {
 }
 
 message ButtonRemap {
-  Button old_button = 1;
-  Button new_button = 2;
+  Button physical_button = 1;
+  Button activates = 2;
 }
 
 message SocdPair {
