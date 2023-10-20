@@ -92,6 +92,7 @@ enum GameModeId {
   MODE_ULTIMATE = 3;
   MODE_FGC = 4;
   MODE_RIVALS_OF_AETHER = 5;
+  MODE_KEYBOARD = 6;
 }
 
 enum CommunicationBackendId {
