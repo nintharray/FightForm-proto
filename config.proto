@@ -115,20 +115,23 @@ message SocdPair {
   SocdType socd_type = 3;
 }
 
-message GameModeConfig {
-  GameModeId mode_id = 1;
-  repeated SocdPair socd_pairs = 2;
-  repeated ButtonRemap button_remapping = 3;
-  repeated Button activation_binding = 4;
-}
-
 message ButtonToKeycodeMapping {
   Button button = 1;
   uint32 keycode = 2;
 }
 
-message KeyboardModeConfig {
-  repeated ButtonToKeycodeMapping buttons_to_keycodes = 1;
+message KeyboardMode {
+  uint32 id = 1;
+  string name = 2;
+  repeated ButtonToKeycodeMapping buttons_to_keycodes = 3;
+}
+
+message GameModeConfig {
+  GameModeId mode_id = 1;
+  repeated SocdPair socd_pairs = 2;
+  repeated ButtonRemap button_remapping = 3;
+  repeated Button activation_binding = 4;
+  uint32 keyboard_mode_id = 5;
 }
 
 message CommunicationBackendConfig {
@@ -142,6 +145,7 @@ message Config {
   CommunicationBackendId default_backend = 1;
   repeated GameModeConfig game_mode_configs = 2;
   repeated CommunicationBackendConfig communication_backend_configs = 3;
+  repeated KeyboardMode keyboard_modes = 4;
 }
 
 message DeviceInfo {
