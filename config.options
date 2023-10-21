@@ -2,6 +2,7 @@ GameModeConfig.socd_pairs max_count:10
 GameModeConfig.button_remapping max_count:60
 GameModeConfig.activation_binding max_count:4
 
+KeyboardModeConfig.name max_length:20
 KeyboardModeConfig.buttons_to_keycodes max_count:60
 
 CommunicationBackendConfig.activation_binding max_count:2
