@@ -12,7 +12,7 @@ GameModeConfig.mode_id int_size:IS_8
 GameModeConfig.socd_pairs max_count:10
 GameModeConfig.button_remapping max_count:60
 GameModeConfig.activation_binding max_count:4
-GameModeConfig.keyboard_mode_id int_size:IS_8
+GameModeConfig.keyboard_mode_index int_size:IS_8
 
 KeyboardModeConfig.id int_size:IS_8
 KeyboardModeConfig.name max_length:20
