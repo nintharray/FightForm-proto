@@ -137,13 +137,13 @@ message GameModeConfig {
 
 message CommunicationBackendConfig {
   CommunicationBackendId backend_id = 1;
-  GameModeId default_mode = 2;
+  uint32 default_mode_index = 2;
   repeated Button activation_binding = 3;
   repeated CommunicationBackendId secondary_backends = 4;
 }
 
 message Config {
-  CommunicationBackendId default_backend = 1;
+  uint32 default_backend_index = 1;
   repeated GameModeConfig game_mode_configs = 2;
   repeated CommunicationBackendConfig communication_backend_configs = 3;
   repeated KeyboardModeConfig keyboard_modes = 4;
