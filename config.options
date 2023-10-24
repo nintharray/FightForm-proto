@@ -12,17 +12,17 @@ GameModeConfig.mode_id int_size:IS_8
 GameModeConfig.socd_pairs max_count:10
 GameModeConfig.button_remapping max_count:60
 GameModeConfig.activation_binding max_count:4
-GameModeConfig.keyboard_mode_index int_size:IS_8
+GameModeConfig.keyboard_mode_config int_size:IS_8
 
 KeyboardModeConfig.id int_size:IS_8
 KeyboardModeConfig.name max_length:20
 KeyboardModeConfig.buttons_to_keycodes max_count:60
 
 CommunicationBackendConfig.backend_id int_size:IS_8
-CommunicationBackendConfig.default_mode_index int_size:IS_8
+CommunicationBackendConfig.default_mode_config int_size:IS_8
 CommunicationBackendConfig.activation_binding max_count:2
 
-Config.default_backend_index int_size:IS_8
+Config.default_backend_config int_size:IS_8
 Config.game_mode_configs max_count:10
 Config.communication_backend_configs max_count:10
 Config.keyboard_modes max_count:5

@@ -132,18 +132,18 @@ message GameModeConfig {
   repeated SocdPair socd_pairs = 2;
   repeated ButtonRemap button_remapping = 3;
   repeated Button activation_binding = 4;
-  uint32 keyboard_mode_index = 5;
+  uint32 keyboard_mode_config = 5;
 }
 
 message CommunicationBackendConfig {
   CommunicationBackendId backend_id = 1;
-  uint32 default_mode_index = 2;
+  uint32 default_mode_config = 2;
   repeated Button activation_binding = 3;
   repeated CommunicationBackendId secondary_backends = 4;
 }
 
 message Config {
-  uint32 default_backend_index = 1;
+  uint32 default_backend_config = 1;
   repeated GameModeConfig game_mode_configs = 2;
   repeated CommunicationBackendConfig communication_backend_configs = 3;
   repeated KeyboardModeConfig keyboard_modes = 4;
