@@ -143,10 +143,11 @@ message CommunicationBackendConfig {
 }
 
 message Config {
-  uint32 default_backend_config = 1;
-  repeated GameModeConfig game_mode_configs = 2;
-  repeated CommunicationBackendConfig communication_backend_configs = 3;
-  repeated KeyboardModeConfig keyboard_modes = 4;
+  repeated GameModeConfig game_mode_configs = 1;
+  repeated CommunicationBackendConfig communication_backend_configs = 2;
+  repeated KeyboardModeConfig keyboard_modes = 3;
+  uint32 default_backend_config = 4;
+  uint32 default_usb_backend_config = 5;
 }
 
 message DeviceInfo {
