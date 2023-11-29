@@ -105,6 +105,13 @@ enum CommunicationBackendId {
   COMMS_BACKEND_CONFIGURATOR = 6;
 }
 
+enum RgbAnimationId {
+  RGB_ANIM_UNSPECIFIED = 0;
+  RGB_ANIM_STATIC = 1;
+  RGB_ANIM_BREATHE = 2;
+  RGB_ANIM_REACTIVE_SIMPLE = 3;
+}
+
 message ButtonRemap {
   Button physical_button = 1;
   Button activates = 2;
@@ -121,6 +128,11 @@ message ButtonToKeycodeMapping {
   uint32 keycode = 2;
 }
 
+message ButtonToColorMapping {
+  Button button = 1;
+  uint32 color = 2;
+}
+
 message KeyboardModeConfig {
   uint32 id = 1;
   string name = 2;
@@ -133,6 +145,7 @@ message GameModeConfig {
   repeated ButtonRemap button_remapping = 3;
   repeated Button activation_binding = 4;
   uint32 keyboard_mode_config = 5;
+  uint32 rgb_config = 6;
 }
 
 message CommunicationBackendConfig {
@@ -142,12 +155,20 @@ message CommunicationBackendConfig {
   repeated CommunicationBackendId secondary_backends = 4;
 }
 
+message RgbConfig {
+  repeated ButtonToColorMapping button_colors = 1;
+  uint32 default_color = 2;
+  RgbAnimationId animation = 3;
+  uint32 speed = 4;
+}
+
 message Config {
   repeated GameModeConfig game_mode_configs = 1;
   repeated CommunicationBackendConfig communication_backend_configs = 2;
   repeated KeyboardModeConfig keyboard_modes = 3;
-  uint32 default_backend_config = 4;
-  uint32 default_usb_backend_config = 5;
+  repeated RgbConfig rgb_configs = 4;
+  uint32 default_backend_config = 5;
+  uint32 default_usb_backend_config = 6;
 }
 
 message DeviceInfo {
