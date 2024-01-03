@@ -14,9 +14,8 @@
   "license": "GPL-3.0-only",
   "homepage": "https://github.com/JonnyHaystack/HayBox-proto",
   "dependencies": {
-    "eric-wieser/PacketIO": "^0.3.0",
-    "Nanopb": "https://github.com/nanopb/nanopb/archive/f5f65a90c8057a591f3cc98de40874bd78c9880d.zip"
+    "Nanopb": "^0.4.8"
   },
-  "frameworks": "arduino",
+  "frameworks": "*",
   "platforms": "*"
 }
