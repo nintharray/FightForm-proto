@@ -137,17 +137,17 @@ message ButtonToColorMapping {
 
 message KeyboardModeConfig {
   uint32 id = 1;
-  string name = 2;
-  repeated ButtonToKeycodeMapping buttons_to_keycodes = 3;
+  repeated ButtonToKeycodeMapping buttons_to_keycodes = 2;
 }
 
 message GameModeConfig {
   GameModeId mode_id = 1;
-  repeated SocdPair socd_pairs = 2;
-  repeated ButtonRemap button_remapping = 3;
-  repeated Button activation_binding = 4;
-  uint32 keyboard_mode_config = 5;
-  uint32 rgb_config = 6;
+  string name = 2;
+  repeated SocdPair socd_pairs = 3;
+  repeated ButtonRemap button_remapping = 4;
+  repeated Button activation_binding = 5;
+  uint32 keyboard_mode_config = 6;
+  uint32 rgb_config = 7;
 }
 
 message CommunicationBackendConfig {
