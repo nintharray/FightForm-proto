@@ -171,6 +171,7 @@ message Config {
   repeated RgbConfig rgb_configs = 4;
   uint32 default_backend_config = 5;
   uint32 default_usb_backend_config = 6;
+  uint32 rgb_brightness = 7;
 }
 
 message DeviceInfo {
