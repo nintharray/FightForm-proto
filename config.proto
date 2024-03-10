@@ -93,6 +93,7 @@ enum GameModeId {
   MODE_FGC = 4;
   MODE_RIVALS_OF_AETHER = 5;
   MODE_KEYBOARD = 6;
+  MODE_CUSTOM = 7;
 }
 
 enum CommunicationBackendId {
@@ -114,6 +115,56 @@ enum RgbAnimationId {
   RGB_ANIM_REACTIVE_SIMPLE = 3;
 }
 
+enum DigitalOutput {
+  GP_UNSPECIFIED = 0;
+  GP_A = 1;
+  GP_B = 2;
+  GP_X = 3;
+  GP_Y = 4;
+  GP_LB = 5;
+  GP_RB = 6;
+  GP_LT = 7;
+  GP_RT = 8;
+  GP_START = 9;
+  GP_SELECT = 10;
+  GP_HOME = 11;
+  GP_CAPTURE = 12;
+  GP_DPAD_UP = 13;
+  GP_DPAD_DOWN = 14;
+  GP_DPAD_LEFT = 15;
+  GP_DPAD_RIGHT = 16;
+  GP_LSTICK_CLICK = 17;
+  GP_RSTICK_CLICK = 18;
+}
+
+enum StickDirectionButton {
+  SD_UNSPECIFIED = 0;
+  SD_LSTICK_UP = 1;
+  SD_LSTICK_DOWN = 2;
+  SD_LSTICK_LEFT = 3;
+  SD_LSTICK_RIGHT = 4;
+  SD_RSTICK_UP = 5;
+  SD_RSTICK_DOWN = 6;
+  SD_RSTICK_LEFT = 7;
+  SD_RSTICK_RIGHT = 8;
+}
+
+enum AnalogAxis {
+  AXIS_UNSPECIFIED = 0;
+  AXIS_LSTICK_X = 1;
+  AXIS_LSTICK_Y = 2;
+  AXIS_RSTICK_X = 3;
+  AXIS_RSTICK_Y = 4;
+  AXIS_LTRIGGER = 5;
+  AXIS_RTRIGGER = 6;
+}
+
+enum AnalogTrigger {
+  TRIGGER_UNSPECIFIED = 0;
+  TRIGGER_LT = 1;
+  TRIGGER_RT = 2;
+}
+
 message ButtonRemap {
   Button physical_button = 1;
   Button activates = 2;
@@ -125,6 +176,18 @@ message SocdPair {
   SocdType socd_type = 3;
 }
 
+message AnalogTriggerMapping {
+  Button button = 1;
+  AnalogTrigger trigger = 2;
+  uint32 value = 3;
+}
+
+message AnalogModifier {
+  Button button = 1;
+  AnalogAxis axis = 2;
+  float multiplier = 3;
+}
+
 message ButtonToKeycodeMapping {
   Button button = 1;
   uint32 keycode = 2;
@@ -133,6 +196,15 @@ message ButtonToKeycodeMapping {
 message ButtonToColorMapping {
   Button button = 1;
   uint32 color = 2;
+}
+
+message CustomModeConfig {
+  uint32 id = 1;
+  repeated Button digital_button_mappings = 2;
+  repeated Button stick_direction_mappings = 3;
+  repeated AnalogTriggerMapping analog_trigger_mappings = 4;
+  repeated AnalogModifier modifiers = 5;
+  uint32 stick_range = 6;
 }
 
 message KeyboardModeConfig {
@@ -146,8 +218,9 @@ message GameModeConfig {
   repeated SocdPair socd_pairs = 3;
   repeated ButtonRemap button_remapping = 4;
   repeated Button activation_binding = 5;
-  uint32 keyboard_mode_config = 6;
-  uint32 rgb_config = 7;
+  uint32 custom_mode_config = 6;
+  uint32 keyboard_mode_config = 7;
+  uint32 rgb_config = 8;
 }
 
 message CommunicationBackendConfig {
@@ -167,11 +240,12 @@ message RgbConfig {
 message Config {
   repeated GameModeConfig game_mode_configs = 1;
   repeated CommunicationBackendConfig communication_backend_configs = 2;
-  repeated KeyboardModeConfig keyboard_modes = 3;
-  repeated RgbConfig rgb_configs = 4;
-  uint32 default_backend_config = 5;
-  uint32 default_usb_backend_config = 6;
-  uint32 rgb_brightness = 7;
+  repeated CustomModeConfig custom_modes = 3;
+  repeated KeyboardModeConfig keyboard_modes = 4;
+  repeated RgbConfig rgb_configs = 5;
+  uint32 default_backend_config = 6;
+  uint32 default_usb_backend_config = 7;
+  uint32 rgb_brightness = 8;
 }
 
 message DeviceInfo {
