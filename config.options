@@ -9,8 +9,10 @@ AnalogTriggerMapping.button int_size:IS_8
 AnalogTriggerMapping.trigger int_size:IS_8
 AnalogTriggerMapping.value int_size:IS_8
 
-AnalogModifier.button int_size:IS_8
+AnalogModifier.buttons int_size:IS_8
+AnalogModifier.buttons max_count:3
 AnalogModifier.axis int_size:IS_8
+AnalogModifier.combination_mode int_size:IS_8
 
 ButtonToKeycodeMapping.button int_size:IS_8
 ButtonToKeycodeMapping.keycode int_size:IS_8
@@ -64,6 +66,7 @@ DigitalOutput long_names:false
 StickDirectionButton long_names:false
 AnalogAxis long_names:false
 AnalogTrigger long_names:false
+ModifierCombinationMode long_names:false
 SocdType long_names:false
 GameModeId long_names:false
 CommunicationBackendId long_names:false

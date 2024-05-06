@@ -165,6 +165,12 @@ enum AnalogTrigger {
   TRIGGER_RT = 2;
 }
 
+enum ModifierCombinationMode {
+  COMBINATION_MODE_UNSPECIFIED = 0;
+  COMBINATION_MODE_COMPOUND = 1;
+  COMBINATION_MODE_OVERRIDE = 2;
+};
+
 message ButtonRemap {
   Button physical_button = 1;
   Button activates = 2;
@@ -183,9 +189,10 @@ message AnalogTriggerMapping {
 }
 
 message AnalogModifier {
-  Button button = 1;
+  repeated Button buttons = 1;
   AnalogAxis axis = 2;
   float multiplier = 3;
+  ModifierCombinationMode combination_mode = 4;
 }
 
 message ButtonToKeycodeMapping {
