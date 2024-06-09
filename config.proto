@@ -195,6 +195,11 @@ message AnalogModifier {
   ModifierCombinationMode combination_mode = 4;
 }
 
+message Coords {
+  uint32 x = 1;
+  uint32 y = 2;
+}
+
 message ButtonToKeycodeMapping {
   Button button = 1;
   uint32 keycode = 2;
@@ -244,6 +249,18 @@ message RgbConfig {
   uint32 speed = 4;
 }
 
+message MeleeOptions {
+  bool crouch_walk_os = 1;
+  bool disable_ledgedash_socd_override = 2;
+  Coords custom_airdodge = 3;
+}
+
+message ProjectMOptions {
+  bool true_z_press = 1;
+  bool disable_ledgedash_socd_override = 2;
+  Coords custom_airdodge = 3;
+}
+
 message Config {
   repeated GameModeConfig game_mode_configs = 1;
   repeated CommunicationBackendConfig communication_backend_configs = 2;
@@ -253,6 +270,8 @@ message Config {
   uint32 default_backend_config = 6;
   uint32 default_usb_backend_config = 7;
   uint32 rgb_brightness = 8;
+  MeleeOptions melee_options = 9;
+  ProjectMOptions project_m_options = 10;
 }
 
 message DeviceInfo {

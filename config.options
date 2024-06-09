@@ -14,6 +14,9 @@ AnalogModifier.buttons max_count:3
 AnalogModifier.axis int_size:IS_8
 AnalogModifier.combination_mode int_size:IS_8
 
+Coords.x int_size:IS_8
+Coords.y int_size:IS_8
+
 ButtonToKeycodeMapping.button int_size:IS_8
 ButtonToKeycodeMapping.keycode int_size:IS_8
 
