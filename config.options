@@ -33,7 +33,7 @@ CustomModeConfig.digital_button_mappings int_size:IS_8
 CustomModeConfig.stick_direction_mappings max_count:8
 CustomModeConfig.stick_direction_mappings int_size:IS_8
 CustomModeConfig.analog_trigger_mappings max_count:4
-CustomModeConfig.modifiers max_count:10
+CustomModeConfig.modifiers max_count:20
 CustomModeConfig.stick_range int_size:IS_8
 
 KeyboardModeConfig.id int_size:IS_8
