@@ -109,9 +109,9 @@ enum SocdType {
   // Second input priority without reactivation - same as above, except releasing the second
   // direction results in neutral. The original direction must be physically reactuated.
   SOCD_2IP_NO_REAC = 3;
-  // The first button in the `SocdPair` always takes priority over the second
+  // The first button in the [SocdPair](#socdpair) always takes priority over the second
   SOCD_DIR1_PRIORITY = 4;
-  // The second button in the `SocdPair` always takes priority over the first
+  // The second button in the [SocdPair](#socdpair) always takes priority over the first
   SOCD_DIR2_PRIORITY = 5;
 }
 
@@ -181,8 +181,8 @@ enum RgbAnimationId {
 }
 
 /**
- * Output state button identifiers, used by CustomModeConfig to bind button inputs to digital
- * gamepad outputs.
+ * Output state button identifiers, used by [CustomModeConfig](#custommodeconfig) to bind button
+ * inputs to digital gamepad outputs.
  */
 enum DigitalOutput {
   GP_UNSPECIFIED = 0;   // Invalid output.
@@ -208,7 +208,7 @@ enum DigitalOutput {
 
 /**
  * Stick direction specifiers used for mapping analog stick directions to buttons in
- * CustomModeConfig.
+ * [CustomModeConfig](#custommodeconfig).
  */
 enum StickDirectionButton {
   SD_UNSPECIFIED = 0;  // No stick direction specified.
@@ -223,7 +223,7 @@ enum StickDirectionButton {
 }
 
 /**
- * Analog axis specifier used for binding AnalogModifiers to specific axes.
+ * Analog axis specifier used for binding [AnalogModifier](#analogmodifier)s to specific axes.
  */
 enum AnalogAxis {
   AXIS_UNSPECIFIED = 0; // No axis specified.
@@ -236,7 +236,8 @@ enum AnalogAxis {
 }
 
 /**
- * Analog trigger specifier used by AnalogTriggerMapping to bind button inputs to analog trigger
+ * Analog trigger specifier used by [AnalogTriggerMapping](#analogtriggermapping) to bind button
+ * inputs to analog trigger
  * values.
  */
 enum AnalogTrigger {
@@ -328,7 +329,7 @@ message Coords {
 /**
  * Button to HID keyboard keycode mapping.
  *
- * Used by KeyboardModeConfig to map button inputs to keyboard inputs.
+ * Used by [KeyboardModeConfig](#keyboardmodeconfig) to map button inputs to keyboard inputs.
  */
 message ButtonToKeycodeMapping {
   Button button = 1;  // The button input that should output this keycode.
@@ -338,7 +339,7 @@ message ButtonToKeycodeMapping {
 /**
  * Button to RGB color code mapping.
  *
- * Used by RgbConfig to specify per-key lighting colors.
+ * Used by [RgbConfig](#rgbconfig) to specify per-key lighting colors.
  */
 message ButtonToColorMapping {
   Button button = 1; // The button to apply the LED color to.
@@ -355,12 +356,12 @@ message CustomModeConfig {
   // Currently unused.
   uint32 id = 1;
   // An ordered list of button inputs to map to gamepad buttons, following the same order of the
-  // output buttons in DigitalOutput (i.e. first input in this list is mapped to the A button,
-  // second input is mapped to B, and so on).
+  // output buttons in [DigitalOutput](#digitaloutput) (i.e. first input in this list is mapped to
+  // the A button, second input is mapped to B, and so on).
   repeated Button digital_button_mappings = 2;
   // An ordered list of button inputs to map to analog stick directions, following the order of the
-  // specifiers in StickDirectionButtons (i.e. first input in this list is mapped to Left Stick Up,
-  // second input is mapped to Left Stick Down, and so on).
+  // specifiers in [StickDirectionButton](#stickdirectionbutton) (i.e. first input in this list is
+  // mapped to Left Stick Up, second input is mapped to Left Stick Down, and so on).
   repeated Button stick_direction_mappings = 3;
   // Maps button inputs to specific analog trigger values values.
   repeated AnalogTriggerMapping analog_trigger_mappings = 4;
@@ -387,7 +388,7 @@ message KeyboardModeConfig {
  * Defines a gamemode profile.
  */
 message GameModeConfig {
-  // The ID of the underlying InputMode implementing class to use.
+  // The ID of the underlying `InputMode` implementing class to use.
   GameModeId mode_id = 1;
   // The name of the profile (optional).
   string name = 2;
@@ -397,17 +398,32 @@ message GameModeConfig {
   repeated ButtonRemap button_remapping = 4;
   // The combination of buttons to press simultaneously to activate this profile.
   repeated Button activation_binding = 5;
-  // Index into the Config.custom_modes array of CustomModeConfigs. Only valid when mode_id =
-  // CUSTOM_MODE. This array index starts at 1, because Protobuf 3 does not transmit zeroes and has
-  // no other way to check field presence.
+
+  /**
+   * Index into the Config.custom_modes array of [CustomModeConfig](#custommodeconfig)s. Only valid
+   * when mode_id = CUSTOM_MODE.
+   *
+   * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
+   * to check field presence.
+   */
   uint32 custom_mode_config = 6;
-  // Index into the Config.keyboard_modes array of KeyboardModeConfigs. Only valid when mode_id =
-  // KEYBOARD_MODE. This array index starts at 1, because Protobuf 3 does not transmit zeroes and
-  // has no other way to check field presence.
+
+  /**
+   * Index into the Config.keyboard_modes array of [KeyboardModeConfig](#keyboardmodeconfig)s. Only
+   * valid when mode_id = KEYBOARD_MODE.
+   *
+   * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
+   * to check field presence.
+   */
   uint32 keyboard_mode_config = 7;
-  // An RgbConfig to apply when this mode is activated. Index into the Config.rgb_configs array of
-  // RgbConfigs (optional). This array index starts at 1, because Protobuf 3 does not transmit
-  // zeroes and has no other way to check field presence.
+
+  /*
+   * An RgbConfig to apply when this mode is activated. Index into the Config.rgb_configs array of
+   * [RgbConfig](#rgbconfig)s (optional).
+   *
+   * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
+   * to check field presence.
+   */
   uint32 rgb_config = 8;
 }
 
@@ -417,7 +433,7 @@ message GameModeConfig {
  * Defines a comms backend profile.
  */
 message CommunicationBackendConfig {
-  // The ID of the underlying CommunicationBackend implementation to use.
+  // The ID of the underlying `CommunicationBackend` implementation to use.
   CommunicationBackendId backend_id = 1;
   // The default gamemode profile to activate after initialization.
   uint32 default_mode_config = 2;
@@ -448,7 +464,8 @@ message MeleeOptions {
   // Set to true to enable downward diagonal coordinate which will cause you to enter walk state if
   // you are hit while crouching.
   bool crouch_walk_os = 1;
-  // Set to true to disable the horizontal SOCD modifier override intended to assist with ledgedashing.
+  // Set to true to disable the horizontal SOCD modifier override intended to assist with
+  // ledgedashing.
   bool disable_ledgedash_socd_override = 2;
   // Custom airdodge X/Y coordinates. Valid X/Y values are 0 to 80.
   Coords custom_airdodge = 3;
@@ -458,14 +475,18 @@ message MeleeOptions {
  * Project M mode specific options.
  */
 message ProjectMOptions {
-  // Set to true to make a Z input (mapped to RF3 by default) output an actual Z button press rather
-  // than the default analog shield + A grab macro.
-  //
-  // The default macro behaviour allows you to L cancel with Z without being locked out of tech,
-  // and true Z is still accessible by pressing Mod X (mapped to LT2 by default) and Z at the same
-  // time.
+  /**
+   * Set to true to make a Z input (mapped to RF3 by default) output an actual Z button press rather
+   * than the default analog shield + A grab macro.
+   * 
+   * The default macro behaviour allows you to L cancel with Z without being locked out of tech,
+   * and true Z is still accessible by pressing Mod X (mapped to LT2 by default) and Z at the same
+   * time.
+   */
   bool true_z_press = 1;
-  // Set to true to disable the horizontal SOCD modifier override intended to assist with ledgedashing.
+
+  // Set to true to disable the horizontal SOCD modifier override intended to assist with
+  // ledgedashing.
   bool disable_ledgedash_socd_override = 2;
   // Custom airdodge X/Y coordinates. Valid X/Y values are 0 to 100.
   Coords custom_airdodge = 3;
@@ -485,19 +506,27 @@ message Config {
   repeated KeyboardModeConfig keyboard_modes = 4;
   // Array containing per-key RGB lighting profiles.
   repeated RgbConfig rgb_configs = 5;
-  // Index into the communication_backend_configs array specifying which CommunicationBackendConfig
-  // to fall back to if none is selected by button holds, console detection, or other methods.
-  //
-  // This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
-  // to check field presence.
+
+  /**
+   * Index into the communication_backend_configs array specifying which
+   * [CommunicationBackendConfig](#communicationbackendconfig) to fall back to if none is selected
+   * by button holds, console detection, or other methods.
+   *
+   * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
+   * to check field presence.
+   */
   uint32 default_backend_config = 6;
-  // Index into the communication_backend_configs array specifying which CommunicationBackendConfig
-  // to default to if the console detection step detects that USB is connected, and no button hold
-  // or other method is used to manually select a specific USB backend.
-  //
-  // This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
-  // to check field presence.
+
+  /**
+   * Index into the communication_backend_configs array specifying which CommunicationBackendConfig
+   * to default to if the console detection step detects that USB is connected, and no button hold
+   * or other method is used to manually select a specific USB backend.
+   * 
+   * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
+   * to check field presence.
+   */
   uint32 default_usb_backend_config = 7;
+
   // Overall RGB brightness modifier, which applies to all RgbConfigs.
   uint32 rgb_brightness = 8;
   // Melee mode specific options.
