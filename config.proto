@@ -317,6 +317,16 @@ message AnalogModifier {
 }
 
 /**
+ * Mapping of multiple button inputs to a single digital output.
+ */
+message ButtonComboMapping {
+  // A list of buttons that must all be pressed simultaneously to activate this mapping.
+  repeated Button buttons = 1;
+  // The digital button output to activate when the button combo is pressed.
+  DigitalOutput digital_output = 2;
+}
+
+/**
  * Analog stick coordinates.
  *
  * Used by various customisation options to describe analog stick positions with unsigned X and Y
@@ -366,11 +376,13 @@ message CustomModeConfig {
   repeated Button stick_direction_mappings = 3;
   // Maps button inputs to specific analog trigger values values.
   repeated AnalogTriggerMapping analog_trigger_mappings = 4;
-  // Applies specified multipliers to a analog axes when specified buttons are pressed.
+  // Applies specified multipliers to analog axes when specified buttons are pressed.
   repeated AnalogModifier modifiers = 5;
   // The base stick range to apply based when stick direction buttons are pressed, which may then
   // have modifiers applied to it.
   uint32 stick_range = 6;
+  // Applies mappings of multiple button inputs to single digital output.
+  repeated ButtonComboMapping button_combo_mappings = 7;
 }
 
 /**

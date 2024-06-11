@@ -14,6 +14,10 @@ AnalogModifier.buttons max_count:3
 AnalogModifier.axis int_size:IS_8
 AnalogModifier.combination_mode int_size:IS_8
 
+ButtonComboMapping.buttons int_size:IS_8
+ButtonComboMapping.buttons max_count:3
+ButtonComboMapping.digital_output int_size:IS_8
+
 Coords.x int_size:IS_8
 Coords.y int_size:IS_8
 
@@ -32,10 +36,9 @@ GameModeConfig.rgb_config int_size:IS_8
 
 CustomModeConfig.id int_size:IS_8
 CustomModeConfig.digital_button_mappings max_count:18
-CustomModeConfig.digital_button_mappings int_size:IS_8
 CustomModeConfig.stick_direction_mappings max_count:8
-CustomModeConfig.stick_direction_mappings int_size:IS_8
 CustomModeConfig.analog_trigger_mappings max_count:4
+CustomModeConfig.button_combo_mappings max_count:5
 CustomModeConfig.modifiers max_count:20
 CustomModeConfig.stick_range int_size:IS_8
 
