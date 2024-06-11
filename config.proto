@@ -118,7 +118,8 @@ enum SocdType {
 /**
  * Gamemode identifier.
  *
- * Indicates to the firmware which gamemode class to switch to when activating a GameModeConfig.
+ * Indicates to the firmware which gamemode class to switch to when activating a
+ * [GameModeConfig](#gamemodeconfig).
  */
 enum GameModeId {
   // No mode specified.
@@ -129,15 +130,15 @@ enum GameModeId {
   MODE_PROJECT_M = 2;
   // Built-in Super Smash Bros Ultimate mode.
   MODE_ULTIMATE = 3;
-  // Built-in traditional fighting game/hitbox-style mode
+  // Built-in traditional fighting game/hitbox-style mode.
   MODE_FGC = 4;
-  // Built-in Rivals of Aether mode
+  // Built-in Rivals of Aether mode.
   MODE_RIVALS_OF_AETHER = 5;
-  // Keyboard mode - a GameModeConfig using this mode id must set
-  // GameModeConfig.keyboard_mode_config to reference a KeyboardModeConfig
+  // Keyboard mode - a [GameModeConfig](#gamemodeconfig) using this mode id must set
+  // GameModeConfig.keyboard_mode_config to reference a [KeyboardModeConfig](#keyboardmodeconfig).
   MODE_KEYBOARD = 6;
-  // Custom gamemode - a GameModeConfig using this mode id must set
-  // GameModeConfig.custom_mode_config to reference a CustomModeConfig
+  // Custom gamemode - a [GameModeConfig](#gamemodeconfig) using this mode id must set
+  // GameModeConfig.custom_mode_config to reference a [CustomModeConfig](#custommodeconfig).
   MODE_CUSTOM = 7;
 }
 
