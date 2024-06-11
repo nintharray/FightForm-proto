@@ -145,7 +145,7 @@ enum GameModeId {
  * Gamemode identifier.
  *
  * Indicates to the firmware which communication backend class to switch to when activating a
- * CommunicationBackendConfig.
+ * [CommunicationBackendConfig].
  */
 enum CommunicationBackendId {
   // No backend specified.
@@ -171,7 +171,7 @@ enum CommunicationBackendId {
 /**
  * RGB animation identifier.
  *
- * Indicates to the firmware which animation to use when activation an RgbConfig.
+ * Indicates to the firmware which animation to use when activation an [RgbConfig](#rgbconfig).
  */ 
 enum RgbAnimationId {
   RGB_ANIM_UNSPECIFIED = 0;     // No animation specified.
@@ -416,8 +416,8 @@ message GameModeConfig {
   uint32 keyboard_mode_config = 7;
 
   /*
-   * An RgbConfig to apply when this mode is activated. Index into the Config.rgb_configs array of
-   * [RgbConfig](#rgbconfig)s (optional).
+   * An [RgbConfig](#rgbconfig) to apply when this mode is activated. This is an index into the
+   * Config.rgb_configs array of [RgbConfig](#rgbconfig)s (optional).
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
@@ -514,15 +514,16 @@ message Config {
   uint32 default_backend_config = 6;
 
   /**
-   * Index into the communication_backend_configs array specifying which CommunicationBackendConfig
-   * to default to if the console detection step detects that USB is connected, and no button hold
-   * or other method is used to manually select a specific USB backend.
+   * Index into the communication_backend_configs array specifying which
+   * [CommunicationBackendConfig](#communicationbackendconfig) to default to if the console
+   * detection step detects that USB is connected, and no button hold or other method is used to
+   * manually select a specific USB backend.
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
   uint32 default_usb_backend_config = 7;
 
-  // Overall RGB brightness modifier, which applies to all RgbConfigs.
+  // Overall RGB brightness modifier, which applies to all [RgbConfig](#rgbconfig)s.
   uint32 rgb_brightness = 8;
   // Melee mode specific options.
   MeleeOptions melee_options = 9;
