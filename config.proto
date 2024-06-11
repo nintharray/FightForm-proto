@@ -402,7 +402,6 @@ message GameModeConfig {
   /**
    * Index into the Config.custom_modes array of [CustomModeConfig](#custommodeconfig)s. Only valid
    * when mode_id = CUSTOM_MODE.
-   *
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
@@ -411,7 +410,6 @@ message GameModeConfig {
   /**
    * Index into the Config.keyboard_modes array of [KeyboardModeConfig](#keyboardmodeconfig)s. Only
    * valid when mode_id = KEYBOARD_MODE.
-   *
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
@@ -420,7 +418,6 @@ message GameModeConfig {
   /*
    * An RgbConfig to apply when this mode is activated. Index into the Config.rgb_configs array of
    * [RgbConfig](#rgbconfig)s (optional).
-   *
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
@@ -511,7 +508,6 @@ message Config {
    * Index into the communication_backend_configs array specifying which
    * [CommunicationBackendConfig](#communicationbackendconfig) to fall back to if none is selected
    * by button holds, console detection, or other methods.
-   *
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
@@ -521,7 +517,6 @@ message Config {
    * Index into the communication_backend_configs array specifying which CommunicationBackendConfig
    * to default to if the console detection step detects that USB is connected, and no button hold
    * or other method is used to manually select a specific USB backend.
-   * 
    * This array index starts at 1, because Protobuf 3 does not transmit zeroes and has no other way
    * to check field presence.
    */
