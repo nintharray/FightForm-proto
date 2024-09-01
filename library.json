@@ -1,18 +1,18 @@
 {
   "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
-  "name": "HayBox-proto",
-  "description": "Protobuf definitions for HayBox configuration",
-  "keywords": "HayBox, game controller, protocol buffers, protobuf",
+  "name": "FightForm-proto",
+  "description": "Protobuf definitions for FightForm configuration",
+  "keywords": "FightForm, HayBox, game controller, protocol buffers, protobuf",
   "authors": {
-    "name": "Jonathan Haylett"
+    "name": "nintharray"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JonnyHaystack/HayBox-proto.git"
+    "url": "https://github.com/nintharray/FightForm-proto.git"
   },
   "version": "0.0.0",
   "license": "GPL-3.0-only",
-  "homepage": "https://github.com/JonnyHaystack/HayBox-proto",
+  "homepage": "https://github.com/nintharray/FightForm-proto",
   "dependencies": {
     "Nanopb": "^0.4.8"
   },
